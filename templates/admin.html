@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel - PhishGuard{% endblock %}
+{% block content %}
+
+<h3 class="mb-4">🔐 Admin Panel — User Performance Overview</h3>
+
+<div class="table-responsive">
+    <table class="table table-dark table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+                <th>Avg Quiz Score</th>
+                <th>Simulations (Correct/Attempted)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in user_stats %}
+            <tr>
+                <td>{{ stat.user.username }}</td>
+                <td>{{ stat.user.email }}</td>
+                <td>
+                    {% if stat.user.role == 'admin' %}
+                        <span class="badge bg-warning text-dark">Admin</span>
+                    {% else %}
+                        <span class="badge bg-info text-dark">User</span>
+                    {% endif %}
+                </td>
+                <td>{{ stat.user.created_at }}</td>
+                <td>
+                    {% if stat.quiz_avg is not none %}
+                        {{ stat.quiz_avg }}%
+                    {% else %}
+                        <span class="text-secondary">No attempts</span>
+                    {% endif %}
+                </td>
+                <td>{{ stat.sim_correct }} / {{ stat.sim_attempted }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

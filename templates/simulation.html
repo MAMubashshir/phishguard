@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Simulation - {{ sim.title }}{% endblock %}
+{% block content %}
+
+<a href="{{ url_for('simulation_list') }}" class="btn btn-sm btn-outline-secondary mb-3">&larr; Back to Simulations</a>
+
+<h4 class="mb-3">Is this message phishing or legitimate?</h4>
+
+<div class="card email-mockup p-0 mb-4">
+    <div class="email-header p-3 border-bottom">
+        <p class="mb-1"><strong>From:</strong> {{ sim.sender }}</p>
+        <p class="mb-1"><strong>Subject:</strong> {{ sim.subject }}</p>
+    </div>
+    <div class="p-4">
+        <p style="line-height: 1.7;">{{ sim.body }}</p>
+    </div>
+</div>
+
+<form method="POST" action="{{ url_for('simulation_view', sim_id=sim.id) }}">
+    <div class="d-flex justify-content-center gap-3">
+        <button type="submit" name="answer" value="phishing" class="btn btn-danger btn-lg px-5">🚩 Phishing</button>
+        <button type="submit" name="answer" value="legitimate" class="btn btn-success btn-lg px-5">✅ Legitimate</button>
+    </div>
+</form>
+
+{% endblock %}

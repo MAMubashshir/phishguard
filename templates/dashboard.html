@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - PhishGuard{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Welcome back, {{ session.username }} 👋</h2>
+
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <div class="card stat-card text-center p-3">
+            <h3 class="mb-0">{{ progress_percent }}%</h3>
+            <small class="text-secondary">Overall Progress</small>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card stat-card text-center p-3">
+            <h3 class="mb-0">{{ completed_modules }}/{{ total_modules }}</h3>
+            <small class="text-secondary">Modules Completed</small>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card stat-card text-center p-3">
+            <h3 class="mb-0">{{ sim_correct }}/{{ sim_attempted }}</h3>
+            <small class="text-secondary">Simulations Correct</small>
+        </div>
+    </div>
+</div>
+
+<div class="progress mb-4" style="height: 22px;">
+    <div class="progress-bar bg-info" role="progressbar" style="width: {{ progress_percent }}%;">
+        {{ progress_percent }}%
+    </div>
+</div>
+
+<h4 class="mb-3">📚 Education Modules</h4>
+<div class="row">
+    {% for module in modules %}
+    <div class="col-md-6 mb-3">
+        <div class="card h-100 p-3">
+            <h6>{{ module.title }}</h6>
+            <p class="text-secondary small mb-2">{{ module.category }}</p>
+            {% if module.id in quiz_scores %}
+                <p class="mb-2"><span class="badge bg-success">Best Score: {{ quiz_scores[module.id][0] }}/{{ quiz_scores[module.id][1] }}</span></p>
+            {% else %}
+                <p class="mb-2"><span class="badge bg-secondary">Not attempted</span></p>
+            {% endif %}
+            <a href="{{ url_for('module_view', module_id=module.id) }}" class="btn btn-outline-info btn-sm mt-auto">Read Module</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('simulation_list') }}" class="btn btn-primary btn-lg">🎯 Go to Phishing Simulations</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ module.title }} - PhishGuard{% endblock %}
+{% block content %}
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-sm btn-outline-secondary mb-3">&larr; Back to Dashboard</a>
+
+<div class="card p-4">
+    <span class="badge bg-info text-dark mb-2" style="width: fit-content;">{{ module.category }}</span>
+    <h2>{{ module.title }}</h2>
+    <hr>
+    <p class="fs-5" style="line-height: 1.7;">{{ module.content }}</p>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('quiz', module_id=module.id) }}" class="btn btn-primary btn-lg">📝 Take the Quiz on This Module</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+/* PhishGuard Custom Styles */
+
+body {
+    background-color: #0D1117;
+    color: #C9D1D9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #161B22 !important;
+    border-bottom: 2px solid #00B4D8;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #00B4D8 !important;
+}
+
+.card {
+    background-color: #161B22;
+    border: 1px solid #30363D;
+    color: #C9D1D9;
+}
+
+.feature-box {
+    background-color: #161B22;
+    border-radius: 10px;
+    border: 1px solid #30363D;
+}
+
+.stat-card h3 {
+    color: #00B4D8;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: #0D1117;
+    border: 1px solid #30363D;
+    color: #C9D1D9;
+}
+
+.form-control:focus {
+    background-color: #0D1117;
+    border-color: #00B4D8;
+    color: #C9D1D9;
+    box-shadow: 0 0 0 0.25rem rgba(0, 180, 216, 0.25);
+}
+
+.btn-primary {
+    background-color: #0077B6;
+    border-color: #0077B6;
+}
+
+.btn-primary:hover {
+    background-color: #00B4D8;
+    border-color: #00B4D8;
+}
+
+.email-mockup {
+    border: 1px solid #30363D;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.email-header {
+    background-color: #1F242C;
+}
+
+a {
+    color: #00B4D8;
+}
+
+a:hover {
+    color: #48CAE4;
+}
+
+.table-dark {
+    --bs-table-bg: #161B22;
+}
+
+.progress {
+    background-color: #21262D;
+}

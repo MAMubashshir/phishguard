@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}PhishGuard - Login{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-7 text-center mb-4">
+        <h1 class="display-5 fw-bold">🛡️ Welcome to PhishGuard</h1>
+        <p class="lead text-secondary">Learn to spot phishing attacks before they catch you.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-sm p-4">
+            <h4 class="mb-3">Login</h4>
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <p class="text-center mt-3 mb-0">
+                No account? <a href="{{ url_for('register') }}">Register here</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-9">
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <div class="feature-box p-3">
+                    <div class="fs-2">📚</div>
+                    <h6 class="mt-2">Education Modules</h6>
+                    <small class="text-secondary">Learn phishing red flags</small>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="feature-box p-3">
+                    <div class="fs-2">🎯</div>
+                    <h6 class="mt-2">Real Simulations</h6>
+                    <small class="text-secondary">Practice spotting phishing</small>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="feature-box p-3">
+                    <div class="fs-2">📊</div>
+                    <h6 class="mt-2">Track Progress</h6>
+                    <small class="text-secondary">See your scores improve</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
